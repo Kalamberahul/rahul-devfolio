@@ -1,0 +1,24 @@
+# IDE and OS files
+.idea/
+.vscode/
+*.iml
+*.DS_Store
+
+# Node dependency directories
+client/node_modules/
+client/dist/
+client/coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Spring Boot / Maven build files
+server/target/
+server/pom.xml.tag
+server/pom.xml.releaseBackup
+server/pom.xml.versionsBackup
+server/pom.xml.next
+server/release.properties
+server/dependency-reduced-pom.xml
+server/build-log.txt
+server/hs_err_pid*
