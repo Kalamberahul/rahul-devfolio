@@ -10,14 +10,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api") // All endpoints in this class will start with /api
-@CrossOrigin(origins = "http://localhost:5173") // Allow requests from our React frontend
+@RequestMapping("/api")
+// Allow requests from both your local dev server and your live Netlify site
+@CrossOrigin(origins = {"http://localhost:5173", "https://rahul-devfolio.netlify.app"})
 public class ContactController {
 
-    @Autowired // Spring automatically injects an instance of our repository
+    @Autowired
     private ContactRepository contactRepository;
 
-    @PostMapping("/contact") // This method handles POST requests to /api/contact
+    @PostMapping("/contact")
     public ResponseEntity<ContactSubmission> createSubmission(@RequestBody ContactSubmission submission) {
         try {
             // Set the timestamp on the server-side before saving
