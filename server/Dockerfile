@@ -1,5 +1,5 @@
-# Stage 1: Build the application using a Java 21 environment
-FROM maven:3-eclipse-temurin-21 AS build
+# Stage 1: Build the application using a valid Java 21 Maven image
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
 
 # Copy the Maven project file
@@ -11,8 +11,8 @@ COPY portfolio-backend/src ./src
 # Build the application
 RUN mvn clean package -DskipTests
 
-# Stage 2: Create the final image using a Java 21 runtime
-FROM eclipse-temurin:21-jdk-jre
+# Stage 2: Create the final image using a valid Java 21 JRE image
+FROM eclipse-temurin:21-jre
 WORKDIR /app
 
 # Copy the built JAR file from the build stage
